@@ -5,4 +5,7 @@
 //  Created by Kem on 2/3/25.
 //
 
-import Foundation
+struct User {
+    let uid: String
+    let email: String
+}

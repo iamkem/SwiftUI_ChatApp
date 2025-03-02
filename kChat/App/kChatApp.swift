@@ -6,12 +6,21 @@
 //
 
 import SwiftUI
+import FirebaseCore // Nhập Firebase để cấu hình
+import FirebaseAuth
 
 @main
-struct kChatApp: App {
+struct ChatApp: App {
+    // register app delegate for Firebase setup
+      @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if Auth.auth().currentUser != nil {
+                HomeView()
+            } else {
+                LoginView() // Khởi đầu bằng màn hình đăng nhập
+            }
         }
     }
 }
